@@ -34,13 +34,21 @@
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                     </form>
+                    @if (Route::has('login'))
+                    @auth
+                    <li class="nav-item">
+                        <x-app-layout>
+                        </x-app-layout>
+                    </li>
+                    @endauth
+                    @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
-
+                    @endif
 
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#">
