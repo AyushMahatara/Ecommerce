@@ -40,7 +40,7 @@
                         <x-app-layout>
                         </x-app-layout>
                     </li>
-                    @endauth
+
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -48,6 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
+                    @endauth
                     @endif
 
                     {{-- <li class="nav-item">
