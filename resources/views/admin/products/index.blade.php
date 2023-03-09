@@ -2,18 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+
     @include('admin.layouts.css')
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="admin/assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
     <Style>
         .center {
             text-align: center;
@@ -56,10 +46,18 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
+                    @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                        {{ session()->get('message') }}
+                    </div>
+                    @endif
                     <!-- main-panel ends -->
                     <div class="center">
                         <h1>Product</h1>
-                        <form action="">
+
+                        <form action="{{ url("/add_product") }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="div_design">
                                 <label for="">Product Title :</label>
                                 <input class="input_color" type="text" name="title" placeholder="write a title"
@@ -95,7 +93,10 @@
                                 <label for="">Product Categoty :</label>
                                 <select class="input_color" name="category" id="" required>
                                     <option value="" selected>Add a cat</option>
-                                    <option value="">Shirt</option>
+                                    @foreach ($category as $category)
+                                    <option value="{{ $category->category_name }}">{{ $category->category_name }}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="div_design">

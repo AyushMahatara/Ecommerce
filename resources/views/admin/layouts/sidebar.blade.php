@@ -78,7 +78,7 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('/view_product') }}">add</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="">show</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('productshow') }}">show</a></li>
         </li>
     </ul>
     </div>
