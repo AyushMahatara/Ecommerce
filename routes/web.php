@@ -42,5 +42,7 @@ route::post('/update_product/{id}', [ProductController::class, 'update']);
 route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
 route::get('/show_cart', [HomeController::class, 'show_cart']);
 route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
-route::get('/online_pay/{id}', [HomeController::class, 'online_pay']);
-route::get('/cash_pay/{id}', [HomeController::class, 'cash_pay']);
+route::get('/online_pay/{tp}', [HomeController::class, 'online_pay']);
+route::get('/cash_pay', [HomeController::class, 'cash_pay']);
+
+route::post('stripe/{tp}', [HomeController::class, 'stripePost'])->name('stripe.post');

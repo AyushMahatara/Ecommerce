@@ -65,7 +65,7 @@
     <div>
         <h1>Proceed to payment</h1>
         <a href="{{ url('cash_pay') }}">Pay on Delivery</a>
-        <a href="{{ url('online_pay') }}">Online Payment</a>
+        <a href="{{ url('online_pay',$tp) }}">Online Payment</a>
     </div>
     <!-- footer start -->
     @include('frontend.footer')
